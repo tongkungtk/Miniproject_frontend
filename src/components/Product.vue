@@ -126,8 +126,8 @@
 <script>
 export default {
   data: () => ({
-    ProductName: '',
-    ProductAmount: '',
+    productName: '',
+    productAmount: 0,
     dialogCreate: false,
     dialogDelete: false,
     headers: [
@@ -251,16 +251,18 @@ export default {
         }
       } else {
         try {
-          var dataResponse = await this.axios.put('http://localhost:9000/product/' + this.idProduct, data)
-          console.log('dataResponse ====>', dataResponse)
-          this.close()
-          this.initialize()
-        } catch (error) {
-          console.log(error.message)
+  var dataResponse = await this.axios.put('http://localhost:9000/product/' + this.idProduct, data)
+  console.log('dataResponse ====>', dataResponse)
+  this.close()
+  this.initialize()
+} catch (error) {
+  console.log(error.message) // แสดงข้อผิดพลาดที่เกิดขึ้นในคอนโซล
+}
+
         }
       }
     }
-  }
+  
 }
 </script>
 
